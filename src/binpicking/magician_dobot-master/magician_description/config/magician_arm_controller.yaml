@@ -1,0 +1,33 @@
+magician_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - magician_joint1
+     - magician_joint2
+     - magician_joint3
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.1
+  stop_trajectory_duration: 0.05
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+magician_joint1_controller:
+  type: position_controllers/JointPositionController
+  joint: magician_joint1
+  pid: {p: 50, i: 0.1, d: 0.1}
+
+magician_joint2_controller:
+  type: position_controllers/JointPositionController
+  joint: magician_joint2
+  pid: {p: 50, i: 0.1, d: 0.1}
+
+magician_fake_joint1_controller:
+  type: position_controllers/JointPositionController
+  joint: magician_fake_joint1
+  pid: {p: 50, i: 0.1, d: 0.1}
+
+magician_fake_joint2_controller:
+  type: position_controllers/JointPositionController
+  joint: magician_fake_joint2
+  pid: {p: 50, i: 0.1, d: 0.1}
+

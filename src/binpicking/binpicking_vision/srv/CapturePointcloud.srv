@@ -1,0 +1,5 @@
+int32 camera			# Camera number
+---
+sensor_msgs/PointCloud2 pointcloud
+#geometry_msgs/Pose      camera_pose
+bool success			# Response message: Success or failure of capture.

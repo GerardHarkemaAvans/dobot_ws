@@ -1,0 +1,6 @@
+<launch>
+  <!-- start the pointcloud capture server -->
+  <node name="capture_pointcloud_server" pkg="binpicking_vision" type="capture_pointcloud_server.py" output="screen"/>
+  <node name="calculate_objectpose_from_pointcloud" pkg="binpicking_vision" type="calculate_objectpose_from_pointcloud" output="screen"/>
+
+</launch>

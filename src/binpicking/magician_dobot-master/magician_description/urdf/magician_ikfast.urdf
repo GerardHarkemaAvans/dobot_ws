@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.0-0-g9aa0fdb  Build Version: 1.5.7004.21443
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="magician" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+  <xacro:include filename="$(find magician_description)/urdf/magician.gazebo" />
+  
+  <xacro:include filename="$(find magician_description)/urdf/magician_transmission.xacro" />
+  
+  <link name="world"/>
+  <link name="magician_origin"/>
+  <joint
+    name="world_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="world" />
+    <child
+      link="magician_origin" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="magician_base">
+    <inertial>
+      <origin
+        xyz="-0.00035432 -0.00080566 0.023187"
+        rpy="0 0 0" />
+      <mass
+        value="0.23009" />
+      <inertia
+        ixx="0.00065784"
+        ixy="-4.8312E-06"
+        ixz="1.2493E-06"
+        iyy="0.00069673"
+        iyz="4.3823E-07"
+        izz="0.0012945" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_origin_joint1"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.139"
+      rpy="0 0 1.5707963267948966" />
+    <parent
+      link="magician_origin" />
+    <child
+      link="magician_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="magician_link1">
+    <inertial>
+      <origin
+        xyz="0.00024809 -0.00074864 0.040762"
+        rpy="0 0 0" />
+      <mass
+        value="0.081469" />
+      <inertia
+        ixx="0.00020859"
+        ixy="8.163E-08"
+        ixz="4.6298E-07"
+        iyy="9.5838E-05"
+        iyz="3.2246E-06"
+        izz="0.00015246" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0569"
+      rpy="0 0 0" />
+    <parent
+      link="magician_base" />
+    <child
+      link="magician_link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.1816"
+      upper="2.1816"
+      effort="20"
+      velocity="1.57" />
+  </joint>
+  <link
+    name="magician_link2">
+    <inertial>
+      <origin
+        xyz="-0.076276 0.029436 2.1815E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.047726" />
+      <inertia
+        ixx="3.5818E-05"
+        ixy="-4.4023E-06"
+        ixz="-7.1903E-09"
+        iyy="0.00014556"
+        iyz="2.3353E-09"
+        izz="0.00015167" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_joint2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0821"
+      rpy="0 1.5707963267948966 0" />
+    <parent
+      link="magician_link1" />
+    <child
+      link="magician_link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.0872"
+      upper="1.5707"
+      effort="20"
+      velocity="1.57" />
+  </joint>
+  <link
+    name="magician_link3">
+    <inertial>
+      <origin
+        xyz="0.029209 -0.054163 -8.4342E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.042983" />
+      <inertia
+        ixx="0.00013733"
+        ixy="-9.7605E-08"
+        ixz="-1.1091E-07"
+        iyy="2.3432E-05"
+        iyz="3.5599E-07"
+        izz="0.00014558" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!--joint
+    name="magician_fake_joint1"
+    type="revolute">
+    <origin
+      xyz="0 -0.147 0"
+      rpy="3.1415926535897932 0 1.5707963267948966" />
+    <parent
+      link="magician_link3" />
+    <child
+      link="magician_fake_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5707"
+      upper="0.08726"
+      effort="20"
+      velocity="1.57" />
+    <mimic
+      joint="magician_joint2"
+      multiplier="-1"
+      offset="0"/>
+  </joint>
+  <link name="magician_fake_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.025" />
+      <inertia
+        ixx="1E-5"
+        ixy="0"
+        ixz="0"
+        iyy="1E-5"
+        iyz="0"
+        izz="1E-5" />
+    </inertial>
+  </link-->
+  <joint
+    name="magician_joint3"
+    type="revolute">
+    <origin
+      xyz="-0.135 0 0"
+      rpy="-3.1415926535897932 0 -3.1415926535897932" />
+    <parent
+      link="magician_link2" />
+    <child
+      link="magician_link3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.2617"
+      upper="1.5707"
+      effort="20"
+      velocity="1.57" />
+  </joint>
+  <!--link
+    name="magician_link4">
+    <inertial>
+      <origin
+        xyz="-0.019694 0.0034659 0.0001155"
+        rpy="0 0 0" />
+      <mass
+        value="0.020564" />
+      <inertia
+        ixx="3.7203E-06"
+        ixy="7.6009E-07"
+        ixz="3.146E-08"
+        iyy="4.5639E-06"
+        iyz="-5.7432E-08"
+        izz="6.427E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_fake_joint2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="magician_fake_link" />
+    <child
+      link="magician_link4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5707"
+      upper="0.2617"
+      effort="20"
+      velocity="1.57" />
+    <mimic
+      joint="magician_joint3"
+      multiplier="-1"
+      offset="0"/>
+  </joint-->
+  <link
+    name="magician_link3_surface">
+    <inertial>
+      <origin
+        xyz="0.059385 -0.050176 -2.6308E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.015005" />
+      <inertia
+        ixx="1.8842E-05"
+        ixy="-3.9211E-07"
+        ixz="4.9615E-10"
+        iyy="3.6097E-06"
+        iyz="-1.2797E-09"
+        izz="1.6901E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link3_surface.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link3_surface.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_link3_joint1"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="magician_link3" />
+    <child
+      link="magician_link3_surface" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="magician_link2_surface">
+    <inertial>
+      <origin
+        xyz="-0.066726 0.060698 5.5359E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.018846" />
+      <inertia
+        ixx="5.9574E-06"
+        ixy="-5.1053E-08"
+        ixz="3.3782E-09"
+        iyy="2.8034E-05"
+        iyz="-1.6336E-11"
+        izz="2.3816E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link2_surface.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_link2_surface.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_link2_joint1"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="magician_link2" />
+    <child
+      link="magician_link2_surface" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="magician_servos">
+    <inertial>
+      <origin
+        xyz="-3.3282E-06 0 0.0821"
+        rpy="0 0 0" />
+      <mass
+        value="0.21777" />
+      <inertia
+        ixx="5.4372E-05"
+        ixy="-1.467E-18"
+        ixz="-1.6192E-19"
+        iyy="0.00011754"
+        iyz="7.4188E-21"
+        izz="0.00011754" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_servos.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_servos.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_link1_joint1"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="magician_link1" />
+    <child
+      link="magician_servos" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="magician_base_surface">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_base_surface.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://magician_description/meshes/magician_base_surface.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="magician_base_joint1"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="magician_base" />
+    <child
+      link="magician_base_surface" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="magician_fake_link4"/>
+  <joint
+    name="magician_link3_joint2"
+    type="fixed">
+    <origin
+      xyz="0 -0.147 0"
+      rpy="3.1415926535897932 0 1.5707963267948966" />
+    <parent
+      link="magician_link3" />
+    <child
+      link="magician_fake_link4" />
+  </joint>
+  <link name="magician_end_link"/>
+  <joint
+    name="magician_link4_joint1"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267948966 3.1415926535897932 0" />
+    <parent
+      link="magician_fake_link4" />
+    <child
+      link="magician_end_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="magician_end_effctor"/>
+  <joint
+    name="magician_end_link_joint1"
+    type="fixed">
+    <origin
+      xyz="0.05 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="magician_end_link" />
+    <child
+      link="magician_end_effctor" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

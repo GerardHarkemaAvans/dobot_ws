@@ -1,0 +1,6 @@
+<launch>
+  <!-- start the pointcloud capture server -->
+  <!-- <node name="rosserial" pkg="rosserial_python" type="serial_node.py" args="_port:=/dev/myARD _baud:=57600" output="screen"/> -->
+  <node name="binpicking_arduino_arduino_server" pkg="binpicking_arduino" type="arduino_server.py" output="screen"/>
+
+</launch>

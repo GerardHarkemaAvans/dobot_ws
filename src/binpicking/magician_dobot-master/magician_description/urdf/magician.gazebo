@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+  
+  <!-- mimicjoints -->
+  <gazebo>
+    <plugin name="mimic_plugin1" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      <joint>magician_joint2</joint>
+      <mimicJoint>magician_fake_joint1</mimicJoint>
+      <multiplier>-1.0</multiplier>
+    </plugin>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="mimic_plugin2" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      <joint>magician_joint3</joint>
+      <mimicJoint>magician_fake_joint2</mimicJoint>
+      <multiplier>-1.0</multiplier>
+    </plugin>
+  </gazebo>
+    
+  <!-- visual -->
+  <gazebo reference="magician_base_surface">
+    <visual name='visual'>
+     <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+    </visual>
+  </gazebo>
+  
+  <gazebo reference="magician_servos">
+    <visual name='visual'>
+     <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="magician_link2">
+    <visual name='visual'>
+     <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+    </visual>
+  </gazebo>
+  
+  <gazebo reference="magician_link2_surface">
+    <visual name='visual'>
+     <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+    </visual>
+  </gazebo>
+  
+  <gazebo reference="magician_link3">
+    <visual name='visual'>
+     <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+    </visual>
+  </gazebo>
+  
+  <gazebo reference="magician_link3_surface">
+    <visual name='visual'>
+     <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+    </visual>
+  </gazebo>
+  
+  <gazebo reference="magician_link4">
+    <visual name='visual'>
+     <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+    </visual>
+  </gazebo>
+  
+</robot>

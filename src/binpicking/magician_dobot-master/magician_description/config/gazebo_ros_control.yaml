@@ -1,0 +1,16 @@
+gazebo_ros_control:
+  pid_gains:
+    magician_fake_joint1:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    magician_fake_joint2:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true

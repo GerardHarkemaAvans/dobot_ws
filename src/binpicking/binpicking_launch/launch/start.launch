@@ -1,0 +1,41 @@
+<launch>
+    <arg name="debug" default="false" />
+    <arg unless="$(arg debug)" name="launch_prefix" value="" />
+    <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+    <arg name="clip_distance"             default="0.627"/>]
+
+
+    <!--<include file="$(find binpicking_app)/launch/gui.launch">
+    </include>-->
+
+    <include file="$(find binpicking_launch)/launch/start_hardware.launch">
+    </include>
+    <include file="$(find binpicking_vision)/launch/vision.launch">
+    </include>
+
+    <include file="$(find binpicking_arduino)/launch/arduino.launch">
+    </include>
+
+    <node name="behavior_mirror" pkg="flexbe_mirror" type="behavior_mirror_sm" output="screen" />
+
+    <include file="$(find flexbe_onboard)/launch/behavior_onboard.launch">
+    		  <arg name="log_enabled" value="true" />
+    </include>
+
+
+    <arg name="behavior_name" default="binpicking" />
+    <node name="behavior_launcher" pkg="flexbe_widget" type="be_launcher" output="screen" args="-b '$(arg behavior_name)'" />
+
+    
+     <include file="$(find binpicking_launch)/launch/cameras.launch">
+        <arg name="clip_distance"             value="$(arg clip_distance)"/>
+    </include>
+
+
+    <!--<include file="$(find flexbe_app)/launch/flexbe_full.launch">
+    </include>-->
+
+    <include file="$(find binpicking_app)/launch/gui.launch">
+    </include>
+
+</launch>

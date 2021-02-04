@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="magician_background" pkg="magician_background" type="magician_background_node" output="screen"/>
+
+  <node name="magician_control_panel" pkg="magician_background" type="magician_panel.py" respawn="true" output="screen" />
+
+</launch>

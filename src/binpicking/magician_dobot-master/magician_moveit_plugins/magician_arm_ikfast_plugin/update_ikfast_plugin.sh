@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py magician magician_arm magician_arm_ikfast_plugin /home/mcl/catkin_ws/src/magician_arm_ikfast_plugin/src/magician_magician_arm_ikfast_solver.cpp

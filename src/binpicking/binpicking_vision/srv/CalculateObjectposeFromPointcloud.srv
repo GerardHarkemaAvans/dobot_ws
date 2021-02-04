@@ -1,0 +1,6 @@
+sensor_msgs/PointCloud2 pointcloud
+int32 camera			# Camera number
+---
+geometry_msgs/PoseStamped     object_pose
+bool succes			# Response message: Success or failure of capture.
+int32 degrees         # Degrees to turn

@@ -1,0 +1,587 @@
+digraph graphname {
+	graph [bb="0,0,1791.1,1522",
+		compound=True,
+		rank=same,
+		rankdir=LR,
+		ranksep=0.2
+	];
+	node [label="\N"];
+	subgraph cluster___camera2 {
+		graph [bb="8,8,1048.1,244",
+			compound=True,
+			label="/camera2",
+			lheight=0.21,
+			lp="528.06,232.5",
+			lwidth=0.71,
+			rank=same,
+			rankdir=LR,
+			ranksep=0.2,
+			style=bold
+		];
+		subgraph cluster___camera2__depth {
+			graph [bb="739.12,16,1040.1,213",
+				compound=True,
+				label="/camera2/depth",
+				lheight=0.21,
+				lp="889.62,201.5",
+				lwidth=1.18,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			subgraph cluster___camera2__depth__color {
+				graph [bb="797.12,107,982.12,182",
+					compound=True,
+					label="/camera2/depth/color",
+					lheight=0.21,
+					lp="889.62,170.5",
+					lwidth=1.61,
+					rank=same,
+					rankdir=LR,
+					ranksep=0.2,
+					style=bold
+				];
+				t___camera2__depth__color__points				 [URL=topic_3A__camera2__depth__color__points,
+					height=0.5,
+					label="/camera2/depth/color/points",
+					pos="889.62,133",
+					shape=box,
+					tooltip="topic:/camera2/depth/color/points",
+					width=2.3472];
+			}
+			subgraph cluster___camera2__depth__image_rect_raw {
+				graph [bb="747.12,24,1032.1,99",
+					compound=True,
+					label="/camera2/depth/image_rect_raw",
+					lheight=0.21,
+					lp="889.62,87.5",
+					lwidth=2.44,
+					rank=same,
+					rankdir=LR,
+					ranksep=0.2,
+					style=bold
+				];
+				n_n__camera2__depth__image_rect_raw__image_topics				 [URL=topic_3A__camera2__depth__image_rect_raw__image_topics,
+					height=0.5,
+					label="/camera2/depth/image_rect_raw/image_topics",
+					pos="889.62,50",
+					shape=box3d,
+					tooltip="topic:/camera2/depth/image_rect_raw/image_topics",
+					width=3.7361];
+			}
+		}
+		subgraph cluster___camera2__realsense2_camera_manager {
+			graph [bb="16,138,290,213",
+				compound=True,
+				label="/camera2/realsense2_camera_manager",
+				lheight=0.21,
+				lp="153,201.5",
+				lwidth=2.93,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			t___camera2__realsense2_camera_manager__bond			 [URL=topic_3A__camera2__realsense2_camera_manager__bond,
+				height=0.5,
+				label="/camera2/realsense2_camera_manager/bond",
+				pos="153,164",
+				shape=box,
+				tooltip="topic:/camera2/realsense2_camera_manager/bond",
+				width=3.5833];
+		}
+		subgraph cluster___camera2__color {
+			graph [bb="17.5,16,288.5,130",
+				compound=True,
+				label="/camera2/color",
+				lheight=0.21,
+				lp="153,118.5",
+				lwidth=1.14,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			subgraph cluster___camera2__color__image_raw {
+				graph [bb="25.5,24,280.5,99",
+					compound=True,
+					label="/camera2/color/image_raw",
+					lheight=0.21,
+					lp="153,87.5",
+					lwidth=2.04,
+					rank=same,
+					rankdir=LR,
+					ranksep=0.2,
+					style=bold
+				];
+				n_n__camera2__color__image_raw__image_topics				 [URL=topic_3A__camera2__color__image_raw__image_topics,
+					height=0.5,
+					label="/camera2/color/image_raw/image_topics",
+					pos="153,50",
+					shape=box3d,
+					tooltip="topic:/camera2/color/image_raw/image_topics",
+					width=3.3194];
+			}
+		}
+		n___camera2__realsense2_camera_manager		 [URL=__camera2__realsense2_camera_manager,
+			height=0.5,
+			label="/camera2/realsense2_camera_manager",
+			pos="508.64,164",
+			shape=ellipse,
+			tooltip="/camera2/realsense2_camera_manager",
+			width=4.0982];
+		t___camera2__realsense2_camera_manager__bond -> n___camera2__realsense2_camera_manager		 [penwidth=1,
+			pos="e,371.06,157.41 282.15,157.48 307.67,157.23 334.64,157.19 360.73,157.34"];
+		n___camera2__realsense2_camera		 [URL=__camera2__realsense2_camera,
+			height=0.5,
+			label="/camera2/realsense2_camera",
+			pos="508.64,110",
+			shape=ellipse,
+			tooltip="/camera2/realsense2_camera",
+			width=3.1233];
+		t___camera2__realsense2_camera_manager__bond -> n___camera2__realsense2_camera		 [penwidth=1,
+			pos="e,401.17,115.36 208.91,146 239.14,139.69 277.14,133.22 311.14,128 336.99,124.03 364.8,120.05 391.15,116.64"];
+		n___camera2__realsense2_camera_manager -> t___camera2__depth__color__points		 [penwidth=1,
+			pos="e,804.99,139.89 631.54,154 684.54,149.69 745.56,144.72 794.95,140.7"];
+		n___camera2__realsense2_camera_manager -> t___camera2__realsense2_camera_manager__bond		 [penwidth=1,
+			pos="e,282.15,170.52 371.06,170.59 345.25,170.8 318.25,170.8 292.38,170.61"];
+		n___camera2__realsense2_camera -> t___camera2__realsense2_camera_manager__bond		 [penwidth=1,
+			pos="e,282.39,150.53 448.93,125.32 409.71,131.78 357.31,138.9 311.14,146 304.99,146.94 298.72,147.93 292.39,148.93"];
+	}
+	subgraph cluster___flexbe {
+		graph [bb="404.14,374,613.14,794",
+			compound=True,
+			label="/flexbe",
+			lheight=0.21,
+			lp="508.64,782.5",
+			lwidth=0.53,
+			rank=same,
+			rankdir=LR,
+			ranksep=0.2,
+			style=bold
+		];
+		subgraph cluster___flexbe__mirror {
+			graph [bb="428.64,482,588.64,665",
+				compound=True,
+				label="/flexbe/mirror",
+				lheight=0.21,
+				lp="508.64,653.5",
+				lwidth=1.07,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			t___flexbe__mirror__sync			 [URL=topic_3A__flexbe__mirror__sync,
+				height=0.5,
+				label="/flexbe/mirror/sync",
+				pos="508.64,508",
+				shape=box,
+				tooltip="topic:/flexbe/mirror/sync",
+				width=1.6944];
+			t___flexbe__mirror__outcome			 [URL=topic_3A__flexbe__mirror__outcome,
+				height=0.5,
+				label="/flexbe/mirror/outcome",
+				pos="508.64,562",
+				shape=box,
+				tooltip="topic:/flexbe/mirror/outcome",
+				width=2];
+			t___flexbe__mirror__structure			 [URL=topic_3A__flexbe__mirror__structure,
+				height=0.5,
+				label="/flexbe/mirror/structure",
+				pos="508.64,616",
+				shape=box,
+				tooltip="topic:/flexbe/mirror/structure",
+				width=2];
+		}
+		t___flexbe__start_behavior		 [URL=topic_3A__flexbe__start_behavior,
+			height=0.5,
+			label="/flexbe/start_behavior",
+			pos="508.64,745",
+			shape=box,
+			tooltip="topic:/flexbe/start_behavior",
+			width=1.875];
+		t___flexbe__behavior_update		 [URL=topic_3A__flexbe__behavior_update,
+			height=0.5,
+			label="/flexbe/behavior_update",
+			pos="508.64,400",
+			shape=box,
+			tooltip="topic:/flexbe/behavior_update",
+			width=2.0556];
+		t___flexbe__request_mirror_structure		 [URL=topic_3A__flexbe__request_mirror_structure,
+			height=0.5,
+			label="/flexbe/request_mirror_structure",
+			pos="508.64,454",
+			shape=box,
+			tooltip="topic:/flexbe/request_mirror_structure",
+			width=2.6806];
+		t___flexbe__status		 [URL=topic_3A__flexbe__status,
+			height=0.5,
+			label="/flexbe/status",
+			pos="508.64,691",
+			shape=box,
+			tooltip="topic:/flexbe/status",
+			width=1.2361];
+	}
+	subgraph cluster___camera1 {
+		graph [bb="8,802,1048.1,1038",
+			compound=True,
+			label="/camera1",
+			lheight=0.21,
+			lp="528.06,1026.5",
+			lwidth=0.71,
+			rank=same,
+			rankdir=LR,
+			ranksep=0.2,
+			style=bold
+		];
+		subgraph cluster___camera1__depth {
+			graph [bb="739.12,810,1040.1,1007",
+				compound=True,
+				label="/camera1/depth",
+				lheight=0.21,
+				lp="889.62,995.5",
+				lwidth=1.18,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			subgraph cluster___camera1__depth__color {
+				graph [bb="797.12,901,982.12,976",
+					compound=True,
+					label="/camera1/depth/color",
+					lheight=0.21,
+					lp="889.62,964.5",
+					lwidth=1.61,
+					rank=same,
+					rankdir=LR,
+					ranksep=0.2,
+					style=bold
+				];
+				t___camera1__depth__color__points				 [URL=topic_3A__camera1__depth__color__points,
+					height=0.5,
+					label="/camera1/depth/color/points",
+					pos="889.62,927",
+					shape=box,
+					tooltip="topic:/camera1/depth/color/points",
+					width=2.3472];
+			}
+			subgraph cluster___camera1__depth__image_rect_raw {
+				graph [bb="747.12,818,1032.1,893",
+					compound=True,
+					label="/camera1/depth/image_rect_raw",
+					lheight=0.21,
+					lp="889.62,881.5",
+					lwidth=2.44,
+					rank=same,
+					rankdir=LR,
+					ranksep=0.2,
+					style=bold
+				];
+				n_n__camera1__depth__image_rect_raw__image_topics				 [URL=topic_3A__camera1__depth__image_rect_raw__image_topics,
+					height=0.5,
+					label="/camera1/depth/image_rect_raw/image_topics",
+					pos="889.62,844",
+					shape=box3d,
+					tooltip="topic:/camera1/depth/image_rect_raw/image_topics",
+					width=3.7361];
+			}
+		}
+		subgraph cluster___camera1__realsense2_camera_manager {
+			graph [bb="16,932,290,1007",
+				compound=True,
+				label="/camera1/realsense2_camera_manager",
+				lheight=0.21,
+				lp="153,995.5",
+				lwidth=2.93,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			t___camera1__realsense2_camera_manager__bond			 [URL=topic_3A__camera1__realsense2_camera_manager__bond,
+				height=0.5,
+				label="/camera1/realsense2_camera_manager/bond",
+				pos="153,958",
+				shape=box,
+				tooltip="topic:/camera1/realsense2_camera_manager/bond",
+				width=3.5833];
+		}
+		subgraph cluster___camera1__color {
+			graph [bb="17.5,810,288.5,924",
+				compound=True,
+				label="/camera1/color",
+				lheight=0.21,
+				lp="153,912.5",
+				lwidth=1.14,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			subgraph cluster___camera1__color__image_raw {
+				graph [bb="25.5,818,280.5,893",
+					compound=True,
+					label="/camera1/color/image_raw",
+					lheight=0.21,
+					lp="153,881.5",
+					lwidth=2.04,
+					rank=same,
+					rankdir=LR,
+					ranksep=0.2,
+					style=bold
+				];
+				n_n__camera1__color__image_raw__image_topics				 [URL=topic_3A__camera1__color__image_raw__image_topics,
+					height=0.5,
+					label="/camera1/color/image_raw/image_topics",
+					pos="153,844",
+					shape=box3d,
+					tooltip="topic:/camera1/color/image_raw/image_topics",
+					width=3.3194];
+			}
+		}
+		n___camera1__realsense2_camera_manager		 [URL=__camera1__realsense2_camera_manager,
+			height=0.5,
+			label="/camera1/realsense2_camera_manager",
+			pos="508.64,958",
+			shape=ellipse,
+			tooltip="/camera1/realsense2_camera_manager",
+			width=4.0982];
+		t___camera1__realsense2_camera_manager__bond -> n___camera1__realsense2_camera_manager		 [penwidth=1,
+			pos="e,371.06,951.41 282.15,951.48 307.67,951.23 334.64,951.19 360.73,951.34"];
+		n___camera1__realsense2_camera		 [URL=__camera1__realsense2_camera,
+			height=0.5,
+			label="/camera1/realsense2_camera",
+			pos="508.64,904",
+			shape=ellipse,
+			tooltip="/camera1/realsense2_camera",
+			width=3.1233];
+		t___camera1__realsense2_camera_manager__bond -> n___camera1__realsense2_camera		 [penwidth=1,
+			pos="e,401.17,909.36 208.91,940 239.14,933.69 277.14,927.22 311.14,922 336.99,918.03 364.8,914.05 391.15,910.64"];
+		n___camera1__realsense2_camera_manager -> t___camera1__depth__color__points		 [penwidth=1,
+			pos="e,804.99,933.89 631.54,948 684.54,943.69 745.56,938.72 794.95,934.7"];
+		n___camera1__realsense2_camera_manager -> t___camera1__realsense2_camera_manager__bond		 [penwidth=1,
+			pos="e,282.15,964.52 371.06,964.59 345.25,964.8 318.25,964.8 292.38,964.61"];
+		n___camera1__realsense2_camera -> t___camera1__realsense2_camera_manager__bond		 [penwidth=1,
+			pos="e,282.39,944.53 448.93,919.32 409.71,925.78 357.31,932.9 311.14,940 304.99,940.94 298.72,941.93 292.39,942.93"];
+	}
+	subgraph cluster___magician_arm_controller {
+		graph [bb="311.14,1392,706.14,1506",
+			compound=True,
+			label="/magician_arm_controller",
+			lheight=0.21,
+			lp="508.64,1494.5",
+			lwidth=1.97,
+			rank=same,
+			rankdir=LR,
+			ranksep=0.2,
+			style=bold
+		];
+		subgraph cluster___magician_arm_controller__follow_joint_trajectory {
+			graph [bb="319.14,1400,698.14,1475",
+				compound=True,
+				label="/magician_arm_controller/follow_joint_trajectory",
+				lheight=0.21,
+				lp="508.64,1463.5",
+				lwidth=3.76,
+				rank=same,
+				rankdir=LR,
+				ranksep=0.2,
+				style=bold
+			];
+			n_n__magician_arm_controller__follow_joint_trajectory__action_topics			 [URL=topic_3A__magician_arm_controller__follow_joint_trajectory__action_topics,
+				height=0.5,
+				label="/magician_arm_controller/follow_joint_trajectory/action_topics",
+				pos="508.64,1426",
+				shape=box3d,
+				tooltip="topic:/magician_arm_controller/follow_joint_trajectory/action_topics",
+				width=5.0417];
+		}
+	}
+	n___behavior_mirror	 [URL=__behavior_mirror,
+		height=0.5,
+		label="/behavior_mirror",
+		pos="889.62,535",
+		shape=ellipse,
+		tooltip="/behavior_mirror",
+		width=1.9859];
+	t___flexbe__mirror__sync -> n___behavior_mirror	 [penwidth=1,
+		pos="e,820.5,530.1 569.85,512.34 635.11,516.96 738.69,524.3 810.19,529.37"];
+	t___flexbe__mirror__outcome -> n___behavior_mirror	 [penwidth=1,
+		pos="e,820.7,539.88 580.74,556.89 646.3,552.24 742.86,545.4 810.51,540.61"];
+	t___flexbe__mirror__structure -> n___behavior_mirror	 [penwidth=1,
+		pos="e,847.08,549.5 580.85,608.77 618.45,604.34 665.02,597.81 706.14,589 750.95,579.4 800.78,564.45 837.19,552.72"];
+	n___behavior	 [URL=__behavior,
+		height=0.5,
+		label="/behavior",
+		pos="153,535",
+		shape=ellipse,
+		tooltip="/behavior",
+		width=1.2277];
+	t___flexbe__start_behavior -> n___behavior	 [penwidth=1,
+		pos="e,179.56,549.58 440.72,754.6 397.86,756.6 344.48,750.97 311.14,718 293.88,700.94 314.85,685.24 303.14,664 276.28,615.31 223.41,576.64 188.12,554.77"];
+	n___binpicking_arduino_arduino_server	 [URL=__binpicking_arduino_arduino_server,
+		height=0.5,
+		label="/binpicking_arduino_arduino_server",
+		pos="1299.2,388",
+		shape=ellipse,
+		tooltip="/binpicking_arduino_arduino_server",
+		width=3.8635];
+	t___flexbe__behavior_update -> n___binpicking_arduino_arduino_server	 [penwidth=1,
+		pos="e,1161,390.1 582.66,398.88 712.05,396.91 981.69,392.82 1150.8,390.25"];
+	n___binpicking_gui_node_11878_1609756640362	 [URL=__binpicking_gui_node_11878_1609756640362,
+		height=0.5,
+		label="/binpicking_gui_node_11878_1609756640362",
+		pos="889.62,308",
+		shape=ellipse,
+		tooltip="/binpicking_gui_node_11878_1609756640362",
+		width=4.8746];
+	t___flexbe__behavior_update -> n___binpicking_gui_node_11878_1609756640362	 [penwidth=1,
+		pos="e,820.89,324.6 583,382.04 648.6,366.2 743.92,343.18 810.82,327.03"];
+	t___flexbe__request_mirror_structure -> n___behavior	 [penwidth=1,
+		pos="e,183.28,521.77 411.93,461.36 379.61,464.98 343.56,470.29 311.14,478 269.71,487.85 224.14,504.99 192.6,517.91"];
+	n___behavior_launcher	 [URL=__behavior_launcher,
+		height=0.5,
+		label="/behavior_launcher",
+		pos="153,691",
+		shape=ellipse,
+		tooltip="/behavior_launcher",
+		width=2.1845];
+	t___flexbe__status -> n___behavior_launcher	 [penwidth=1,
+		pos="e,227.99,685.37 464.06,686.35 407.64,684.04 309.29,683.64 238.26,685.14"];
+	t___flexbe__status -> n___behavior_mirror	 [penwidth=1,
+		pos="e,872.29,552.65 553.33,692.48 594.41,692.36 656.3,688.38 706.14,669 770.12,644.12 831.92,591.13 864.92,559.76"];
+	n___magician_hardware_node	 [URL=__magician_hardware_node,
+		height=0.5,
+		label="/magician_hardware_node",
+		pos="153,1396",
+		shape=ellipse,
+		tooltip="/magician_hardware_node",
+		width=2.9067];
+	n_n__magician_arm_controller__follow_joint_trajectory__action_topics -> n___magician_hardware_node	 [penwidth=1,
+		pos="e,256.82,1398.6 372.9,1408 338.01,1404.7 300.83,1401.7 267.15,1399.3"];
+	n___move_group	 [URL=__move_group,
+		height=0.5,
+		label="/move_group",
+		pos="889.62,1423",
+		shape=ellipse,
+		tooltip="/move_group",
+		width=1.6068];
+	n_n__magician_arm_controller__follow_joint_trajectory__action_topics -> n___move_group	 [penwidth=1,
+		pos="e,833.61,1418.5 690.2,1417.8 737.85,1417.4 786.25,1417.5 823.43,1418.3"];
+	t___calibrate	 [URL=topic_3A__calibrate,
+		height=0.5,
+		label="/calibrate",
+		pos="1112.6,354",
+		shape=box,
+		tooltip="topic:/calibrate",
+		width=0.93056];
+	t___calibrate -> n___binpicking_arduino_arduino_server	 [penwidth=1,
+		pos="e,1218.4,373.27 1146.4,360.16 1163.9,363.34 1186.2,367.4 1208.2,371.43"];
+	t___joint_states	 [URL=topic_3A__joint_states,
+		height=0.5,
+		label="/joint_states",
+		pos="508.64,1366",
+		shape=box,
+		tooltip="topic:/joint_states",
+		width=1.1389];
+	n___robot_state_publisher	 [URL=__robot_state_publisher,
+		height=0.5,
+		label="/robot_state_publisher",
+		pos="889.62,1366",
+		shape=ellipse,
+		tooltip="/robot_state_publisher",
+		width=2.4734];
+	t___joint_states -> n___robot_state_publisher	 [penwidth=1,
+		pos="e,800.52,1366 549.77,1366 606.85,1366 711.89,1366 790.15,1366"];
+	t___joint_states -> n___move_group	 [penwidth=1,
+		pos="e,837.46,1415.2 549.77,1372.2 616.52,1382.1 748.85,1401.9 827.23,1413.7"];
+	t___button_pushed	 [URL=topic_3A__button_pushed,
+		height=0.5,
+		label="/button_pushed",
+		pos="1741.1,323",
+		shape=box,
+		tooltip="topic:/button_pushed",
+		width=1.3889];
+	t___button_pushed -> n___binpicking_arduino_arduino_server	 [penwidth=1,
+		pos="e,1379.3,373.19 1690.9,328.93 1633.2,335.9 1535.7,348.15 1452.3,361 1431.9,364.14 1410,367.81 1389.4,371.42"];
+	t___arduino_blink_led	 [URL=topic_3A__arduino_blink_led,
+		height=0.5,
+		label="/arduino_blink_led",
+		pos="1514.8,442",
+		shape=box,
+		tooltip="topic:/arduino_blink_led",
+		width=1.6528];
+	n___rosserial	 [URL=__rosserial,
+		height=0.5,
+		label="/rosserial",
+		pos="1634.2,388",
+		shape=ellipse,
+		tooltip="/rosserial",
+		width=1.1916];
+	t___arduino_blink_led -> n___rosserial	 [penwidth=1,
+		pos="e,1605.9,401.66 1557.2,423.9 1564,420.97 1570.8,417.93 1577.3,415 1583.6,412.15 1590.2,409.06 1596.7,406.03"];
+	t___arduino_toggle_led	 [URL=topic_3A__arduino_toggle_led,
+		height=0.5,
+		label="/arduino_toggle_led",
+		pos="1514.8,388",
+		shape=box,
+		tooltip="topic:/arduino_toggle_led",
+		width=1.7361];
+	t___arduino_toggle_led -> n___rosserial	 [penwidth=1,
+		pos="e,1591.3,388 1577.6,388 1578.8,388 1579.9,388 1581.1,388"];
+	n___magician_hardware_node -> n_n__magician_arm_controller__follow_joint_trajectory__action_topics	 [penwidth=1,
+		pos="e,326.9,1417.4 230.17,1408.2 256.07,1411 286.21,1413.9 316.92,1416.6"];
+	n___magician_hardware_node -> t___joint_states	 [penwidth=1,
+		pos="e,467.43,1369.5 247.37,1388 314.65,1382.4 402.53,1375 457.28,1370.3"];
+	n___behavior_launcher -> t___flexbe__mirror__structure	 [penwidth=1,
+		pos="e,436.27,620.36 191.99,675.34 223.6,663.29 269.57,647.17 311.14,638 348.39,629.78 390.31,624.56 425.92,621.27"];
+	n___behavior_launcher -> t___flexbe__start_behavior	 [penwidth=1,
+		pos="e,440.91,736.31 215.26,702.12 244.35,707.19 279.48,713.13 311.14,718 350.53,724.05 394.45,730.13 430.86,734.97"];
+	n___behavior_launcher -> t___flexbe__status	 [penwidth=1,
+		pos="e,464.06,695.65 227.99,696.63 295.6,698.3 393.45,698.1 453.94,696.03"];
+	n___rosserial -> t___button_pushed	 [penwidth=1,
+		pos="e,1711.3,341.09 1658.7,373.09 1671.7,365.2 1687.9,355.34 1702.5,346.46"];
+	n___binpicking_arduino_arduino_server -> t___arduino_blink_led	 [penwidth=1,
+		pos="e,1455,427.02 1363.3,404.06 1389,410.51 1418.8,417.96 1445.1,424.55"];
+	n___binpicking_arduino_arduino_server -> t___arduino_toggle_led	 [penwidth=1,
+		pos="e,1451.8,388 1438.5,388 1439.5,388 1440.5,388 1441.4,388"];
+	n___capture_pointcloud_server	 [URL=__capture_pointcloud_server,
+		height=0.5,
+		label="/capture_pointcloud_server",
+		pos="153,1450",
+		shape=ellipse,
+		tooltip="/capture_pointcloud_server",
+		width=2.9608];
+	n___behavior -> t___flexbe__mirror__sync	 [penwidth=1,
+		pos="e,447.37,512.65 196.61,531.69 256.54,527.14 365.09,518.9 437.04,513.44"];
+	n___behavior -> t___flexbe__mirror__outcome	 [penwidth=1,
+		pos="e,436.63,556.53 196.61,538.31 253.62,542.64 354.64,550.31 426.28,555.75"];
+	n___behavior -> t___flexbe__mirror__structure	 [penwidth=1,
+		pos="e,436.25,609.49 184.57,547.81 216.12,560.12 266.25,578.37 311.14,589 348.38,597.82 390.3,604.05 425.9,608.3"];
+	n___behavior -> t___flexbe__status	 [penwidth=1,
+		pos="e,464,693.31 171.81,551.44 211.92,586.45 302.92,665.46 311.14,669 356.55,688.58 413.04,693.13 453.95,693.34"];
+	n___behavior -> t___calibrate	 [penwidth=1,
+		pos="e,1078.7,353.15 163.25,517.2 185.06,481.36 239.92,401.23 311.14,370 380.44,339.61 910.52,349.31 1068.4,352.91"];
+	n___behavior -> t___button_pushed	 [penwidth=1,
+		pos="e,1699.8,304.86 161.99,517.22 182.52,478.61 236.9,387.22 311.14,345 536.92,216.6 629.88,262 889.62,262 889.62,262 889.62,262 1514.8,262 1576.8,262 1645.1,283.6 1690.3,301.09"];
+	n___behavior_mirror -> t___flexbe__behavior_update	 [penwidth=1,
+		pos="e,582.94,403.2 867.33,517.86 834.17,493.34 769,448.81 706.14,427 670.28,414.56 628.9,407.82 593.3,404.19"];
+	n___behavior_mirror -> t___flexbe__request_mirror_structure	 [penwidth=1,
+		pos="e,605.15,462.21 849.01,520.06 812.2,507.08 756.2,488.73 706.14,478 676.85,471.73 644.75,466.95 615.1,463.37"];
+	n___calculate_objectpose_from_pointcloud	 [URL=__calculate_objectpose_from_pointcloud,
+		height=0.5,
+		label="/calculate_objectpose_from_pointcloud",
+		pos="153,1504",
+		shape=ellipse,
+		tooltip="/calculate_objectpose_from_pointcloud",
+		width=4.1705];
+	n___binpicking_gui_node_11878_1609756640362 -> t___calibrate	 [penwidth=1,
+		pos="e,1079,343.61 983.81,323.27 1010.2,328.07 1038.9,333.77 1065.1,340 1066.4,340.3 1067.7,340.62 1069,340.94"];
+	n___binpicking_gui_node_11878_1609756640362 -> t___button_pushed	 [penwidth=1,
+		pos="e,1690.8,316.35 1063.5,305.55 1136.3,304.72 1221.9,304 1299.2,304 1299.2,304 1299.2,304 1514.8,304 1571.2,304 1635.3,309.94 1680.8,315.18"];
+	n___move_group -> n_n__magician_arm_controller__follow_joint_trajectory__action_topics	 [penwidth=1,
+		pos="e,690.2,1431.3 834.03,1428.4 798.21,1429.9 749.32,1430.8 700.33,1431.2"];
+}

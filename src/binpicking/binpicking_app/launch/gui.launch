@@ -1,0 +1,3 @@
+<launch>
+  <node name="binpicking_app_gui_node" pkg="binpicking_app" type="run.py" output="screen"/>
+</launch>   

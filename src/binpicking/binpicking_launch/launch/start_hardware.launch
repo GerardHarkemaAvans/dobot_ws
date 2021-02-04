@@ -1,0 +1,9 @@
+<launch>
+	<include file="$(find magician_hardware)/launch/magician_bringup.launch">
+		  <arg name="usb" value="myUSB" />
+	</include>
+	<include file="$(find magician_moveit_config)/launch/move_group.launch">
+	    <arg name="debug" value="false" />
+		<arg name="info" value="false"/>
+	</include>
+</launch>

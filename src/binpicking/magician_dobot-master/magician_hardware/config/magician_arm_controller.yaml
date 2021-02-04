@@ -1,0 +1,13 @@
+magician_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - magician_joint1
+     - magician_joint2
+     - magician_joint3
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.1
+  stop_trajectory_duration: 0.05
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
