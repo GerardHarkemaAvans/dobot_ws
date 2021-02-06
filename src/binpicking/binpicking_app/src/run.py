@@ -22,12 +22,12 @@ import getpass
 user = getpass.getuser()
 
 class TopicFetcher(QObject): # Thread retreiving all currently active topics and services, once per second.
-    
+
     topic_signal = pyqtSignal(str)
 
     pyqtSlot()
     def monitor_topics(self):
-        
+
         while True:
             topics = rospy.get_published_topics()
             topic_string = str(topics)
@@ -39,7 +39,7 @@ class TopicFetcher(QObject): # Thread retreiving all currently active topics and
 
 
 
-class MainWindow(QMainWindow): 
+class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent) #creating mainwindow, placeholder for the two potential screens
         self.central_widget = QStackedWidget()
@@ -59,7 +59,7 @@ class MainWindow(QMainWindow):
         self.topic_fetcher.topic_signal.connect(self.topic_callback)
         self.topic_fetcher.moveToThread(self.thread)
         self.thread.started.connect(self.topic_fetcher.monitor_topics)
-        self.thread.start()  
+        self.thread.start()
 
         self.camera1_connected = False #list of booleans for gui logic
         self.camera2_connected = False
@@ -77,7 +77,7 @@ class MainWindow(QMainWindow):
 
     pyqtSlot(str)
     def topic_callback(self, topicsAndServices):
-        
+
         res = self.buttonCheck()   #handeling buttonlogic via button topic, will change screen whenever physical button or arduino button is pushed.
         if not res.isPressed == self.isButtonPressed:
             self.isButtonPressed = res.isPressed
@@ -119,10 +119,10 @@ class MainWindow(QMainWindow):
         #    self.arduino_connected = True
         #    self.set_status_connected(self.start_screen.arduino_status)
         #else:
-        #    self.arduino_connected = False 
+        #    self.arduino_connected = False
         #    self.set_status_disconnected(self.start_screen.arduino_status)
-        #if self.arduino_connected and self.dobot_connected and self.camera1_connected and self.camera2_connected: 
-        if self.dobot_connected and self.camera1_connected and self.camera2_connected: 
+        #if self.arduino_connected and self.dobot_connected and self.camera1_connected and self.camera2_connected:
+        if self.dobot_connected and self.camera1_connected and self.camera2_connected:
             if not self.isCalibrating:
                 self.enable_start_button()
                 self.start_screen.calibrate_button.setEnabled(True) #enable start binpicking button if all devices are connected(and not calibrating)
@@ -133,11 +133,11 @@ class MainWindow(QMainWindow):
         if self.isCalibrating or not self.idleHasStarted:
             self.disable_start_button()
             self.start_screen.calibrate_button.setEnabled(False)
-        
+
     def start_binPicking(self): #method linked to startbinpicking button, will publish true to button topick to switch screen.
         self.binpickingStateInGUI = True
         self.pub.publish(True)
-    
+
     def stop_binPicking(self): #method linked to stop binpicking button
         self.binpickingStateInGUI = False
         self.pub.publish(True)
@@ -146,7 +146,7 @@ class MainWindow(QMainWindow):
         connected_sheet = 'font: Bold;font-size: 60px; font-family: Monospace; color: green;'
         qlabel.setText("CONNECTED")
         qlabel.setStyleSheet(connected_sheet)
-    
+
     def set_status_disconnected(self, qlabel):
         disconnected_sheet = 'font: Bold;font-size: 60px; font-family: Monospace; color: red;'
         qlabel.setText("DISCONNECTED")
@@ -170,8 +170,8 @@ class MainWindow(QMainWindow):
                 color: white;
                 font-size: 112px;
                 background-color: #4CAF50;
-                height: 450px;""")            
-    
+                height: 450px;""")
+
     def start_calibrate(self): #method linked to calibrate button push
         self.calibrate.publish(True)
 
@@ -184,9 +184,9 @@ class MainWindow(QMainWindow):
         self.pub = rospy.Publisher('button_pushed', Bool,queue_size=10) # create publisher for button pressed signal
         rospy.loginfo("Started button_pushed subscriber in GUI")
         self.calibrate = rospy.Publisher('calibrate', Bool,queue_size=10) # create publisher for calibration method
-        rospy.loginfo("Started calibrate subscriber in GUI")        
+        rospy.loginfo("Started calibrate subscriber in GUI")
 
-    def callbackStateMachine(self, data): #callback handling from flexbe behaviour updates topic        
+    def callbackStateMachine(self, data): #callback handling from flexbe behaviour updates topic
         stateTextarray = data.data.split('/')
         stateText = stateTextarray[len(stateTextarray) - 1]
         rospy.loginfo(data.data)
@@ -201,7 +201,7 @@ class MainWindow(QMainWindow):
             self.isCalibrating = False
         text = "Current State:\t%s" % stateText
         self.binpicking_screen.current_state.setText(text) #show robots current state in binpicking screen
-           
+
 class StartScreen(QWidget):
     def __init__(self, parent=None):
         super(StartScreen, self).__init__(parent)
@@ -212,28 +212,28 @@ class StartScreen(QWidget):
         LayoutStatusLeft = QVBoxLayout() #layout for device names
         LayoutStatusRight = QVBoxLayout() #layout for device statusus
         layout.addLayout(layoutLeft)
-        
+
         self.avans_pic = QLabel()     #avans image label creation
         self.avans_pic.setContentsMargins(175,0,0,0)
-        p = QPixmap('/home/' + user + '/BinPicking/src/binpicking/binpicking_app/src/Avans.png')
+        p = QPixmap('/home/' + user + '/dobot_ws/src/binpicking/binpicking_app/src/Avans.png')
         size = QSize(600,1200)
-        self.avans_pic.setPixmap(p.scaled(size,Qt.KeepAspectRatio))   
-        
+        self.avans_pic.setPixmap(p.scaled(size,Qt.KeepAspectRatio))
+
         self.sr_pic = QLabel()        #smart robotics image label creation
         self.sr_pic.setContentsMargins(175,0,0,0)
-        p = QPixmap('/home/' + user + '/BinPicking/src/binpicking/binpicking_app/src/smartrobotics.png')
+        p = QPixmap('/home/' + user + '/dobot_ws/src/binpicking/binpicking_app/src/smartrobotics.png')
         size = QSize(600,1200)
         self.sr_pic.setPixmap(p.scaled(size,Qt.KeepAspectRatio))
 
-        layoutLeft.addLayout(LayoutStatus)  
+        layoutLeft.addLayout(LayoutStatus)
         LayoutStatus.addLayout(LayoutStatusRight)
-        LayoutStatus.addLayout(LayoutStatusLeft) 
-        
+        LayoutStatus.addLayout(LayoutStatusLeft)
+
         self.camera1_status = QLabel("DISCONNECTED")
         self.camera2_status = QLabel("DISCONNECTED")
         self.dobot_status = QLabel("DISCONNECTED")
         #self.arduino_status = QLabel("DISCONNECTED")
-        
+
         disconnected_sheet = 'font: Bold;font-size: 60px; font-family: Monospace; color: red;'
         self.camera1_status.setStyleSheet(disconnected_sheet)
         self.camera2_status.setStyleSheet(disconnected_sheet)
@@ -279,7 +279,7 @@ class StartScreen(QWidget):
             color: white;
             font-size: 112px;
             background-color: #008CBA;
-            height: 450px; 
+            height: 450px;
         """)
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(20)
@@ -293,10 +293,10 @@ class StartScreen(QWidget):
             color: white;
             font-size: 112px;
             background-color: grey;
-            height: 450px; 
+            height: 450px;
         """)
         shadow2 = QGraphicsDropShadowEffect()
-        shadow2.setBlurRadius(20)  
+        shadow2.setBlurRadius(20)
         self.start_button.setGraphicsEffect(shadow2)
 
         layoutRight.addWidget(self.calibrate_button)
@@ -311,13 +311,13 @@ class BinpickingScreen( QWidget ): #class to create the binpicking screen with r
 
         reader = rviz.YamlConfigReader()
         config = rviz.Config()
-        reader.readFile(config,"/home/" + user + "/BinPicking/src/binpicking/binpicking_launch/rviz/config.rviz" )
+        reader.readFile(config,"/home/" + user + "/dobot_ws/src/binpicking/binpicking_launch/rviz/config.rviz" )
         self.frame.load(config)
 
         self.frame.setMenuBar( None )
         self.frame.setStatusBar( None )
-        self.frame.setHideButtonVisibility( False ) 
-        self.manager = self.frame.getManager() 
+        self.frame.setHideButtonVisibility( False )
+        self.manager = self.frame.getManager()
 
         layout_complete_bpc = QVBoxLayout() # layout container binpicking screen
 
@@ -328,29 +328,29 @@ class BinpickingScreen( QWidget ): #class to create the binpicking screen with r
             color: white;
             font-size: 30px;
             background-color: rgb(255, 0, 0);
-            height: 100px; """)   
+            height: 100px; """)
 
         self.current_state = QLabel("Current State:\n\NO STATE FOUND") #creation current state label
         self.current_state.setStyleSheet('font-size: 40px; font: Bold; color: white;')
-        self.current_state.setGeometry(QRect(0, 0, 300, 100)) 
-        
+        self.current_state.setGeometry(QRect(0, 0, 300, 100))
+
         layout_complete_bpc.addWidget(self.current_state)
-        layout_complete_bpc.addWidget(self.frame )  
+        layout_complete_bpc.addWidget(self.frame )
         layout_complete_bpc.addWidget(self.stop_button)   #adding created components to layout
 
-        self.setLayout( layout_complete_bpc )  
+        self.setLayout( layout_complete_bpc )
 
 #adding wallpaper image to the mainwindow
-stylesheet = """  
+stylesheet = """
     QMainWindow {{
-        background-image: url(/home/{0}/BinPicking/src/binpicking/binpicking_app/src/wallpaper4.jpg); 
-        background-repeat: no-repeat; 
+        background-image: url(/home/{0}/dobot_ws/src/binpicking/binpicking_app/src/wallpaper4.jpg);
+        background-repeat: no-repeat;
         background-position: center;
     }}
 """
 stylesheet = stylesheet.format(user)
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     app = QApplication([]) #initialising app
     app.setStyleSheet(stylesheet) #setting wallpaper image
     window = MainWindow() #creating mainwindow container for start / binpicking screen
