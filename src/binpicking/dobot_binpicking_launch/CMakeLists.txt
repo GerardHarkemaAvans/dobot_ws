@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(binpicking_launch)
+project(dobot_binpicking_launch)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -100,7 +100,7 @@ find_package(catkin REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES binpicking_launch
+#  LIBRARIES dobot_binpicking_launch
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )

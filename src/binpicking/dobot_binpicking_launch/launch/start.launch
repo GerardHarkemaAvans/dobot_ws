@@ -8,7 +8,7 @@
     <!--<include file="$(find binpicking_app)/launch/gui.launch">
     </include>-->
 
-    <include file="$(find binpicking_launch)/launch/start_hardware.launch">
+    <include file="$(find dobot_binpicking_launch)/launch/start_hardware.launch">
     </include>
     <include file="$(find binpicking_vision)/launch/vision.launch">
     </include>
@@ -27,7 +27,7 @@
     <node name="behavior_launcher" pkg="flexbe_widget" type="be_launcher" output="screen" args="-b '$(arg behavior_name)'" />
 
     
-     <include file="$(find binpicking_launch)/launch/cameras.launch">
+     <include file="$(find dobot_binpicking_launch)/launch/cameras.launch">
         <arg name="clip_distance"             value="$(arg clip_distance)"/>
     </include>
 
