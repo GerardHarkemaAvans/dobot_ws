@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- start the pointcloud capture server -->
   <!-- <node name="rosserial" pkg="rosserial_python" type="serial_node.py" args="_port:=/dev/myARD _baud:=57600" output="screen"/> -->

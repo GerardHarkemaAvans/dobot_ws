@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="usb"/> 
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find magician_description)/urdf/magician.urdf.xacro'" />

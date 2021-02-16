@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="serial_no_camera1"    			default="039422063063"/> 			<!-- Note: Replace with actual serial number -->
   <arg name="serial_no_camera2"    			default="039422062060"/> 			<!-- Note: Replace with actual serial number -->

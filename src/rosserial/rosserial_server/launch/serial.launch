@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="port" default="/dev/ttyACM0" />
   <node pkg="rosserial_server" type="serial_node" name="rosserial_server">

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- the primary port that allows rosserial to function -->
   <arg name="mainport" default="/dev/ttyACM1" />
